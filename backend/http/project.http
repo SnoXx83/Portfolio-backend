@@ -1,0 +1,22 @@
+###
+GET http://localhost:3000/project
+
+###
+
+GET http://localhost:3000/project/1
+
+###
+
+POST http://localhost:3000/project
+Content-Type: application/json
+
+{
+    "name": "EcoDrive",
+    "resume": "",
+    "img_url_1" : "",
+    "img_url_2" : "",
+    "img_url_3" : "",
+    "img_url_4" : "",
+    "technology_ids": [1,2],
+    "github_link": ""
+}
