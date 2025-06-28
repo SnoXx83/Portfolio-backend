@@ -2,18 +2,26 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  ManyToMany,
 } from 'typeorm';
+import { Project } from './project';
 
 
-@Entity('technologies') 
+@Entity() 
 export class Technology {
   @PrimaryGeneratedColumn()
   id!: number; 
 
-  @Column()
+  @Column({ type: "varchar", length: 255, unique: true })
   name!: string; 
 
-  @Column()
-  img_url!: string | null;
+  @Column({ 
+        type: "varchar", 
+        length: 2048, 
+        nullable: true 
+    })
+  img_url!: string;
 
+  @ManyToMany(()=> Project, (project)=>project.technologies)
+  projects!: Project[];
 }

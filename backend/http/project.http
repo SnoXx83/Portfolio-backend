@@ -12,11 +12,11 @@ Content-Type: application/json
 
 {
     "name": "EcoDrive",
-    "resume": "",
-    "img_url_1" : "",
-    "img_url_2" : "",
-    "img_url_3" : "",
-    "img_url_4" : "",
+    "resume": "wxcwxc",
+    "img_url_1" : "cxwc",
+    "img_url_2" : "wxcwx",
+    "img_url_3" : "xcwxc",
+    "img_url_4" : "xwcwxc",
     "technology_ids": [1,2],
-    "github_link": ""
+    "github_link": "xcwxc"
 }

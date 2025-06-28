@@ -1,36 +1,51 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    ManyToMany,
-    JoinTable,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
+import { Technology } from './technology';
 
 
-@Entity('projects') 
+@Entity()
 export class Project {
-    @PrimaryGeneratedColumn()
-    id!: number; 
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    title!: string;
+  @Column({ type: "varchar", length: 255, unique: true })
+  name!: string;
 
-    @Column()
-    resume!: string
+  @Column({ type: "varchar", length: 255 })
+  resume!: string
 
-    @Column()
-    img_url_1!: string | null;
+  @Column({ type: "varchar", length: 2048, nullable: true })
+  img_url_1!: string;
 
-    @Column()
-    img_url_2!: string | null;
+  @Column({ type: "varchar", length: 2048, nullable: true })
+  img_url_2!: string;
 
-    @Column()
-    img_url_3!: string | null;
+  @Column({ type: "varchar", length: 2048, nullable: true })
+  img_url_3!: string;
 
-    @Column()
-    img_url_4!: string | null;
+  @Column({ type: "varchar", length: 2048, nullable: true })
+  img_url_4!: string;
 
-    @Column()
-    github_link!: string | null
+  @Column({ type: "varchar", length: 255, nullable: true })
+  github_link!: string;
+
+  @ManyToMany(() => Technology, (technology) => technology.projects)
+  @JoinTable({
+    name: 'project_technologies',
+    joinColumn: {
+      name: 'project_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'technology_id',
+      referencedColumnName: 'id',
+    },
+  })
+  technologies!: Technology[];
 
 }
