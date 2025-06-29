@@ -3,7 +3,7 @@ GET http://localhost:3000/project
 
 ###
 
-GET http://localhost:3000/project/1
+GET http://localhost:3000/project/2
 
 ###
 
@@ -11,7 +11,7 @@ POST http://localhost:3000/project
 Content-Type: application/json
 
 {
-    "name": "EcoDrive",
+    "name": "Portfolio",
     "resume": "wxcwxc",
     "img_url_1" : "cxwc",
     "img_url_2" : "wxcwx",

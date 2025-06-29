@@ -37,4 +37,33 @@ export const ProjectController = {
             res.status(500).json({ message: 'Erreur interne du serveur' });
         }
     },
+    getAll: async (req: Request, res: Response) => {
+        try {
+            const projects = await projectRepository.find({
+                relations: ['technologies'],
+            });
+
+            res.status(200).json(projects);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des projets :', error)
+        }
+    },
+    getProjectById: async (req: Request, res: Response) => {
+        try {
+            const projectId = parseInt(req.params.id);
+
+            const project = await projectRepository.findOne({
+                where: { id: projectId },
+                relations: ['technologies'],
+            });
+            if (!project) {
+                res.status(404).json({ message: 'Projet non trouvé.' });
+            }
+
+             res.status(200).json(project);
+        } catch (error) {
+            console.error('Erreur lors de la récupération du projet par ID :', error);
+        }
+
+    }
 }

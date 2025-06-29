@@ -18,4 +18,12 @@ export const TechnologyController = {
             res.status(500).json({ message: 'Erreur interne du serveur' });
         }
     },
+    getAll: async (req: Request, res: Response)=>{
+        try {
+            const technologies= await technologyRepository.find();
+            res.status(200).json(technologies);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des technologies :', error)
+        }
+    }
 }
