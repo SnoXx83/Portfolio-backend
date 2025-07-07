@@ -1,10 +1,18 @@
 import "reflect-metadata";
 import express, { Express, Request, Response } from 'express';
-import AppDataSource from '../config/db';
 import routes from './routes/routes'
+import AppDataSource from "./../config/db";
+import cors from "cors";
 
 const app: Express = express();
-const port = 3000;
+const port = 4000;
+
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 app.use(express.json());
 app.use('/', routes);
