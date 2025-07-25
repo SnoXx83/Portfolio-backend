@@ -65,5 +65,22 @@ export const ProjectController = {
             console.error('Erreur lors de la récupération du projet par ID :', error);
         }
 
+    },
+    deleteProject: async (req: Request, res: Response) => {
+        try {
+            const projectId = parseInt(req.params.id);
+            const projectToDelete = await projectRepository.findOne({ where: { id: projectId } });
+
+            if (!projectToDelete) {
+                return res.status(404).json({ message: 'Projet non trouvé.' });
+            }
+
+            await projectRepository.remove(projectToDelete);
+
+            return res.status(204).send();
+        } catch (error) {
+            console.error('Erreur lors de la suppression du projet :', error);
+            res.status(500).json({ message: 'Erreur interne du serveur lors de la suppression du projet.' });
+        }
     }
 }

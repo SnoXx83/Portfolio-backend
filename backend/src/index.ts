@@ -3,6 +3,7 @@ import express, { Express, Request, Response } from 'express';
 import routes from './routes/routes'
 import AppDataSource from "./../config/db";
 import cors from "cors";
+import path from "path";
 
 const app: Express = express();
 const port = 4000;
@@ -16,6 +17,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/', routes);
+app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
 
 app.get('/', (_req: Request, res: Response) => {
     res.send('Hello World !');

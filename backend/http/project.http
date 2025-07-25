@@ -11,12 +11,16 @@ POST http://localhost:4000/project
 Content-Type: application/json
 
 {
-    "name": "The-good-corner",
-    "resume": "wxcwxc",
-    "img_url_1" : "cxwc",
-    "img_url_2" : "wxcwx",
-    "img_url_3" : "xcwxc",
-    "img_url_4" : "xwcwxc",
-    "technology_ids": [1,2],
-    "github_link": "xcwxc"
+    "name": "Portfolio",
+    "resume": "Mon précédent portfolio, développé avec PHP et le framework Symfony, a été conçu pour présenter mes compétences et mon parcours professionnel. Il respecte l'architecture MVC (Modèle-Vue-Contrôleur), garantissant une structure claire et maintenable. L'interface utilisateur a été construite avec Twig, un moteur de templates flexible, tandis que Doctrine a été utilisé comme ORM pour interagir efficacement avec la base de données MySQL. Ce portfolio offrait une navigation intuitive à travers différentes sections : mes projets pour illustrer mes réalisations, mes expériences professionnelles pour détailler mon parcours, et une section <À propos> pour mieux me connaître.",
+    "img_url_1" : "/uploads/Portfolio/image_1.png",
+    "img_url_2" : "/uploads/Portfolio/image_2.png",
+    "img_url_3" : "/uploads/Portfolio/image_3.png",
+    "img_url_4" : "/uploads/Portfolio/image_4.png",
+    "technology_ids": [16,15,5,6,9,17,24,25],
+    "github_link": "https://github.com/SnoXx83/my-portfolio"
 }
+
+###
+
+DELETE http://localhost:4000/project/3
